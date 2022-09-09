@@ -1,6 +1,6 @@
 import operacionesBasicas
 
-def main():
+def ejercicio1():
     s = operacionesBasicas.sumar(3,2)
     r = operacionesBasicas.restar(19,4)
     m = operacionesBasicas.multiplicar(3,4)
@@ -8,4 +8,4 @@ def main():
     print("Los resultados son: ","suma:",s,"resta:",r,"multiplicacion:",m,"division:",d)
     
 
-main()    
+ejercicio1()    
