@@ -1,27 +1,27 @@
 #crear una lista de RadioButton que muestre la opción que se ha seleccionado y 
 # que contenga un botón de reinicio para que deje todo como al principio.
 
-import tkinter
-from tkinter import ttk
+from tkinter import *
 
-window=tkinter.Tk()
+window=Tk()
 
-def reiniciar(event):
-    print('reestrablecido')
+def mostrar():
+    m.config(text='{}'.format(seleccion.get()))
 
-seleccion=tkinter.StringVar()
+def reiniciar():
+    seleccion.set(None)
+    m.config(text="")
+    
+seleccion=StringVar()
+seleccion.set(None)
 
-rad1=ttk.Radiobutton(window, text='TI', value='1', variable=seleccion)
-rad2=ttk.Radiobutton(window, text='Cedula', value='2', variable=seleccion)
-rad3=ttk.Radiobutton(window, text='Pasaporte', value='3', variable=seleccion)
+Radiobutton(window, text='TI', value='T.I.', variable=seleccion, command=mostrar).pack(anchor='w')
+Radiobutton(window, text='Cedula', value='Cedula', variable=seleccion, command=mostrar).pack(anchor='w')
+Radiobutton(window, text='Pasaporte', value='Pasaporte', variable=seleccion, command=mostrar).pack(anchor='w')
 
-rad1.grid(column=0, row=1, padx=3, pady=3)
-rad2.grid(column=0, row=2, padx=3, pady=3)
-rad3.grid(column=0, row=3, padx=3, pady=3)
+m=Label(window)
+m.pack()
 
-boton=tkinter.Button(window, text='reestablecer')
-boton.pack()
-
-boton.bind('<Button-1>', reiniciar)
+Button(window, text='reestablecer', command=reiniciar).pack()
 
 window.mainloop()
